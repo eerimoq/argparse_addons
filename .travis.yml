@@ -14,3 +14,13 @@ script:
 
 after_success:
   coveralls
+
+deploy:
+  provider: pypi
+  username: __token__
+  password:
+    secure: "Yz8s/omS5EEt9uJ6zVBYBu015cpp1j3klhM9HToBdqdUHgOu6j/7OnjOCW7xbhBOlqjUK7YlBo0z1zq7yu4LW81/c3GToIlmlAnT6L0v/DdiVmB6P3WcKv5ccf+BVbUT6AVxp326THTWLyUpnIeoM97hTj4KH57FlKHtAepOZN37SD9DOTbjw7pjldcL1SL3WXuwOjWlB5ynbj1X88pbelXI9fqjfT2SrneEu3IZSsf5b7E7UHXI5c7jEkkJpS1QibNd66UTXrHm/qamZxWMyazRrH3H3nSPUQJy1WTKr0M6nhHNeRR+b1vs3skF+20BoXrhyQjSuPAzFK/jkLw4dHS2o2quCH1SkiehVmpdwBahna0h3ro4tZ/zds2l2acDpMUIcPR6AVyK1EhQlp6vMknfE6dzJfOI/NOYeHkcWbA65Vsu1uUP3XYSreYft/YAubVvDLDfIIPvM19R4e+IxQe2vUGFcO+sQHsZe1CU+U/bzOX3lNudsOy7B3mGDSvVJPr6iZ3D/u8eek21bGPYRJC5FC7C6AUEXSDtIWocDDi/ZCtFMOQBSkFAJ+scVErl7nnyjDo/rPCZX0SyvGZIp0B6DRr8Wv1dPiY5/KMKgJhcIhawu3mabF9W/K0CvSpGfqXKOlyzrL8B7CMDj74aQxzO0JoLI01uKfBwz4mokQU="
+  edge: true
+  skip_existing: true
+  on:
+    tags: true
