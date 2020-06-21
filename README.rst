@@ -4,7 +4,7 @@
 About
 =====
 
-Additional PYthon argparse types and actions.
+Additional Python argparse types and actions.
 
 Project homepage: https://github.com/eerimoq/argparse_addons
 
@@ -33,7 +33,7 @@ script.
    parser.add_argument('--max',
                        type=argparse_addons.IntegerRangeType(None, 255))
 
-Error message for the range 0..255.
+Error message for the ``--min-max`` argument.
 
 .. code-block:: text
 
@@ -41,7 +41,7 @@ Error message for the range 0..255.
    usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
    integer_range_type.py: error: argument --min-max: -1 is not in the range 0..255
 
-Error message for the range 0..inf.
+Error message for the ``--min`` argument.
 
 .. code-block:: text
 
@@ -49,7 +49,7 @@ Error message for the range 0..inf.
    usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
    integer_range_type.py: error: argument --min: -1 is not in the range 0..inf
 
-Error message for the range -inf..255.
+Error message for the ``--max`` argument.
 
 .. code-block:: text
 
@@ -96,4 +96,4 @@ Contributing
 .. |coverage| image:: https://coveralls.io/repos/github/eerimoq/argparse_addons/badge.svg?branch=master
 .. _coverage: https://coveralls.io/github/eerimoq/argparse_addons
 
-.. _examples/integer_range_type.py: https://github.com/eerimoq/argparse_addons/examples/integer_range_type.py
+.. _examples/integer_range_type.py: https://github.com/eerimoq/argparse_addons/blob/master/examples/integer_range_type.py
