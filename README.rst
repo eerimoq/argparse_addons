@@ -39,5 +39,5 @@ Contributing
 
 #. Create a pull request.
 
-.. |buildstatus| image:: https://travis-ci.org/eerimoq/argparse_addons.svg
-.. _buildstatus: https://travis-ci.org/eerimoq/argparse_addons
+.. |buildstatus| image:: https://travis-ci.com/eerimoq/argparse_addons.svg
+.. _buildstatus: https://travis-ci.com/eerimoq/argparse_addons
