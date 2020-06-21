@@ -5,51 +5,60 @@ import argparse_addons
 
 class ArgparseAddonsTest(unittest.TestCase):
 
-    def test_integer_range_type_min_and_max(self):
-        integer_range_type = argparse_addons.IntegerRangeType(0, 255)
+    def test_integer(self):
+        integer = argparse_addons.Integer()
 
-        self.assertEqual(integer_range_type('0'), 0)
-        self.assertEqual(integer_range_type('255'), 255)
+        self.assertEqual(integer('0'), 0)
+        self.assertEqual(integer('0x1a'), 0x1a)
+
+        with self.assertRaises(ValueError):
+            integer('ab')
+
+    def test_integer_min_and_max(self):
+        integer = argparse_addons.Integer(0, 255)
+
+        self.assertEqual(integer('0'), 0)
+        self.assertEqual(integer('255'), 255)
 
         with self.assertRaises(argparse.ArgumentTypeError) as cm:
-            integer_range_type('-1')
+            integer('-1')
 
         self.assertEqual(str(cm.exception), '-1 is not in the range 0..255')
 
         with self.assertRaises(argparse.ArgumentTypeError) as cm:
-            integer_range_type('256')
+            integer('256')
 
         self.assertEqual(str(cm.exception), '256 is not in the range 0..255')
 
         with self.assertRaises(ValueError):
-            integer_range_type('foobar')
+            integer('foobar')
 
-    def test_integer_range_type_min(self):
-        integer_range_type = argparse_addons.IntegerRangeType(0, None)
+    def test_integer_min(self):
+        integer = argparse_addons.Integer(0, None)
 
-        self.assertEqual(integer_range_type('0'), 0)
-        self.assertEqual(integer_range_type('100000'), 100000)
+        self.assertEqual(integer('0'), 0)
+        self.assertEqual(integer('100000'), 100000)
 
         with self.assertRaises(argparse.ArgumentTypeError) as cm:
-            integer_range_type('-1')
+            integer('-1')
 
         self.assertEqual(str(cm.exception), '-1 is not in the range 0..inf')
 
-    def test_integer_range_type_max(self):
-        integer_range_type = argparse_addons.IntegerRangeType(None, 5)
+    def test_integer_max(self):
+        integer = argparse_addons.Integer(None, 5)
 
-        self.assertEqual(integer_range_type('5'), 5)
-        self.assertEqual(integer_range_type('-111'), -111)
+        self.assertEqual(integer('5'), 5)
+        self.assertEqual(integer('-111'), -111)
 
         with self.assertRaises(argparse.ArgumentTypeError) as cm:
-            integer_range_type('6')
+            integer('6')
 
         self.assertEqual(str(cm.exception), '6 is not in the range -inf..5')
 
-    def test_integer_range_type_repr(self):
-        self.assertEqual(repr(argparse_addons.IntegerRangeType(0, 1)), 'integer')
+    def test_integer_repr(self):
+        self.assertEqual(repr(argparse_addons.Integer(0, 1)), 'integer')
 
-    def test_integer_range_type_hex(self):
-        integer_range_type = argparse_addons.IntegerRangeType(0, 5)
+    def test_integer_hex(self):
+        integer = argparse_addons.Integer(0, 5)
 
-        self.assertEqual(integer_range_type('0x1'), 1)
+        self.assertEqual(integer('0x1'), 1)

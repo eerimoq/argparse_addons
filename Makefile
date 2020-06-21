@@ -1,5 +1,15 @@
+.PHONY: examples
+
 test:
 	python3 setup.py test
+
+examples:
+	! PYTHONPATH=. python3 examples/integer.py --min-max -1
+	! PYTHONPATH=. python3 examples/integer.py --min -1
+	! PYTHONPATH=. python3 examples/integer.py --max 1000
+	! PYTHONPATH=. python3 examples/integer.py --none a
+	PYTHONPATH=. python3 examples/integer.py \
+	    --min-max 47 --min 1000 --max -5 --none 1
 
 test-sdist:
 	rm -rf dist

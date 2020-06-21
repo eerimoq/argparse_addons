@@ -11,6 +11,7 @@ install:
 script:
   - coverage run --source=argparse_addons setup.py test
   - make test-sdist
+  - make examples
 
 after_success:
   coveralls

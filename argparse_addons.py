@@ -1,12 +1,12 @@
 import argparse
 
 
-__version__ = '0.3.0'
+__version__ = '0.4.0'
 
 
-class IntegerRangeType:
+class Integer:
 
-    def __init__(self, minimum, maximum):
+    def __init__(self, minimum=None, maximum=None):
         self.minimum = minimum
         self.maximum = maximum
 

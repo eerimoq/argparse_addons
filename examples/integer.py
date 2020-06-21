@@ -5,13 +5,16 @@ import argparse_addons
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--min-max',
-                    type=argparse_addons.IntegerRangeType(0, 255),
+                    type=argparse_addons.Integer(0, 255),
                     help='an integer in the range 0..255')
 parser.add_argument('--min',
-                    type=argparse_addons.IntegerRangeType(0, None),
+                    type=argparse_addons.Integer(0, None),
                     help='an integer in the range 0..inf')
 parser.add_argument('--max',
-                    type=argparse_addons.IntegerRangeType(None, 255),
+                    type=argparse_addons.Integer(None, 255),
+                    help='an integer in the range -inf..255')
+parser.add_argument('--none',
+                    type=argparse_addons.Integer(),
                     help='an integer in the range -inf..255')
 
 args = parser.parse_args()
@@ -19,3 +22,4 @@ args = parser.parse_args()
 print(f'--min-max: {args.min_max}')
 print(f'--min:     {args.min}')
 print(f'--max:     {args.max}')
+print(f'--none:    {args.none}')

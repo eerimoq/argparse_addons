@@ -18,8 +18,8 @@ Installation
 Examples
 ========
 
-Integer range type
-------------------
+Integer type
+------------
 
 The script. See `examples/integer_range_type.py`_ for the complete
 script.
@@ -27,44 +27,55 @@ script.
 .. code-block:: python
 
    parser.add_argument('--min-max',
-                       type=argparse_addons.IntegerRangeType(0, 255))
+                       type=argparse_addons.Integer(0, 255))
    parser.add_argument('--min',
-                       type=argparse_addons.IntegerRangeType(0, None))
+                       type=argparse_addons.Integer(0, None))
    parser.add_argument('--max',
-                       type=argparse_addons.IntegerRangeType(None, 255))
+                       type=argparse_addons.Integer(None, 255))
+   parser.add_argument('--none',
+                       type=argparse_addons.Integer())
 
 Error message for the ``--min-max`` argument.
 
 .. code-block:: text
 
-   $ python3 examples/integer_range_type.py --min-max -1
-   usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
-   integer_range_type.py: error: argument --min-max: -1 is not in the range 0..255
+   $ python3 examples/integer.py --min-max -1
+   usage: integer.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX] [--none NONE]
+   integer.py: error: argument --min-max: -1 is not in the range 0..255
 
 Error message for the ``--min`` argument.
 
 .. code-block:: text
 
-   $ python3 examples/integer_range_type.py --min -1
-   usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
-   integer_range_type.py: error: argument --min: -1 is not in the range 0..inf
+   $ python3 examples/integer.py --min -1
+   usage: integer.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX] [--none NONE]
+   integer.py: error: argument --min: -1 is not in the range 0..inf
 
 Error message for the ``--max`` argument.
 
 .. code-block:: text
 
-   $ python3 examples/integer_range_type.py --max 1000
-   usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
-   integer_range_type.py: error: argument --max: 1000 is not in the range -inf..255
+   $ python3 examples/integer.py --max 1000
+   usage: integer.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX] [--none NONE]
+   integer.py: error: argument --max: 1000 is not in the range -inf..255
+
+Error message for the ``--none`` argument.
+
+.. code-block:: text
+
+   $ python3 examples/integer.py --none a
+   usage: integer.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX] [--none NONE]
+   integer.py: error: argument --none: invalid integer value: 'a'
 
 All values within allowed ranges.
 
 .. code-block:: text
 
-   $ python3 examples/integer_range_type.py --min-max 47 --min 1000 --max -5
+   $ python3 examples/integer.py --min-max 47 --min 1000 --max -5 --none 1
    --min-max: 47
    --min:     1000
    --max:     -5
+   --none:    1
 
 Contributing
 ============
