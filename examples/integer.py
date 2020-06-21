@@ -13,13 +13,13 @@ parser.add_argument('--min',
 parser.add_argument('--max',
                     type=argparse_addons.Integer(None, 255),
                     help='an integer in the range -inf..255')
-parser.add_argument('--none',
+parser.add_argument('--any',
                     type=argparse_addons.Integer(),
-                    help='an integer in the range -inf..255')
+                    help='any integer')
 
 args = parser.parse_args()
 
 print(f'--min-max: {args.min_max}')
 print(f'--min:     {args.min}')
 print(f'--max:     {args.max}')
-print(f'--none:    {args.none}')
+print(f'--any:     {args.any}')
