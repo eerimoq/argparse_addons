@@ -15,6 +15,57 @@ Installation
 
     $ pip install argparse_addons
 
+Examples
+========
+
+Integer range type
+------------------
+
+The script. See `examples/integer_range_type.py`_ for the complete
+script.
+
+.. code-block:: python
+
+   parser.add_argument('--min-max',
+                       type=argparse_addons.IntegerRangeType(0, 255))
+   parser.add_argument('--min',
+                       type=argparse_addons.IntegerRangeType(0, None))
+   parser.add_argument('--max',
+                       type=argparse_addons.IntegerRangeType(None, 255))
+
+Error message for the range 0..255.
+
+.. code-block:: text
+
+   $ python3 examples/integer_range_type.py --min-max -1
+   usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
+   integer_range_type.py: error: argument --min-max: -1 is not in the range 0..255
+
+Error message for the range 0..inf.
+
+.. code-block:: text
+
+   $ python3 examples/integer_range_type.py --min -1
+   usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
+   integer_range_type.py: error: argument --min: -1 is not in the range 0..inf
+
+Error message for the range -inf..255.
+
+.. code-block:: text
+
+   $ python3 examples/integer_range_type.py --max 1000
+   usage: integer_range_type.py [-h] [--min-max MIN_MAX] [--min MIN] [--max MAX]
+   integer_range_type.py: error: argument --max: 1000 is not in the range -inf..255
+
+All values within allowed ranges.
+
+.. code-block:: text
+
+   $ python3 examples/integer_range_type.py --min-max 47 --min 1000 --max -5
+   --min-max: 47
+   --min:     1000
+   --max:     -5
+
 Contributing
 ============
 
@@ -44,3 +95,5 @@ Contributing
 
 .. |coverage| image:: https://coveralls.io/repos/github/eerimoq/argparse_addons/badge.svg?branch=master
 .. _coverage: https://coveralls.io/github/eerimoq/argparse_addons
+
+.. _examples/integer_range_type.py: https://github.com/eerimoq/argparse_addons/examples/integer_range_type.py

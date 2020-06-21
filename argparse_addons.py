@@ -1,7 +1,7 @@
 import argparse
 
 
-__version__ = '0.2.0'
+__version__ = '0.3.0'
 
 
 class IntegerRangeType:
@@ -20,11 +20,11 @@ class IntegerRangeType:
         elif self.minimum is not None:
             if value < self.minimum:
                 raise argparse.ArgumentTypeError(
-                    f'{string} is not {self.minimum} or higher')
+                    f'{string} is not in the range {self.minimum}..inf')
         elif self.maximum is not None:
             if value > self.maximum:
                 raise argparse.ArgumentTypeError(
-                    f'{string} is not {self.maximum} or lower')
+                    f'{string} is not in the range -inf..{self.maximum}')
 
         return value
 

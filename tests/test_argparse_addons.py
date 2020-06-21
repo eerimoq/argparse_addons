@@ -33,7 +33,7 @@ class ArgparseAddonsTest(unittest.TestCase):
         with self.assertRaises(argparse.ArgumentTypeError) as cm:
             integer_range_type('-1')
 
-        self.assertEqual(str(cm.exception), '-1 is not 0 or higher')
+        self.assertEqual(str(cm.exception), '-1 is not in the range 0..inf')
 
     def test_integer_range_type_max(self):
         integer_range_type = argparse_addons.IntegerRangeType(None, 5)
@@ -44,7 +44,7 @@ class ArgparseAddonsTest(unittest.TestCase):
         with self.assertRaises(argparse.ArgumentTypeError) as cm:
             integer_range_type('6')
 
-        self.assertEqual(str(cm.exception), '6 is not 5 or lower')
+        self.assertEqual(str(cm.exception), '6 is not in the range -inf..5')
 
     def test_integer_range_type_repr(self):
         self.assertEqual(repr(argparse_addons.IntegerRangeType(0, 1)), 'integer')
