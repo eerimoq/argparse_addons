@@ -15,6 +15,9 @@ script:
 after_success:
   coveralls
 
+before_deploy:
+  - git clean -dfx
+
 deploy:
   provider: pypi
   username: __token__
