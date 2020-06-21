@@ -48,3 +48,8 @@ class ArgparseAddonsTest(unittest.TestCase):
 
     def test_integer_range_type_repr(self):
         self.assertEqual(repr(argparse_addons.IntegerRangeType(0, 1)), 'integer')
+
+    def test_integer_range_type_hex(self):
+        integer_range_type = argparse_addons.IntegerRangeType(0, 5)
+
+        self.assertEqual(integer_range_type('0x1'), 1)
