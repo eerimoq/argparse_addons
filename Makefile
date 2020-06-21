@@ -1,6 +1,5 @@
 test:
 	python3 setup.py test
-	$(MAKE) test-sdist
 
 test-sdist:
 	rm -rf dist
