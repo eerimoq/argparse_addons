@@ -21,8 +21,7 @@ Examples
 Integer type
 ------------
 
-The script. See `examples/integer_range_type.py`_ for the complete
-script.
+The script. See `examples/integer.py`_ for the complete script.
 
 .. code-block:: python
 
@@ -107,4 +106,4 @@ Contributing
 .. |coverage| image:: https://coveralls.io/repos/github/eerimoq/argparse_addons/badge.svg?branch=master
 .. _coverage: https://coveralls.io/github/eerimoq/argparse_addons
 
-.. _examples/integer_range_type.py: https://github.com/eerimoq/argparse_addons/blob/master/examples/integer_range_type.py
+.. _examples/integer.py: https://github.com/eerimoq/argparse_addons/blob/master/examples/integer.py
