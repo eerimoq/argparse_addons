@@ -16,15 +16,15 @@ class Integer:
         if self.minimum is not None and self.maximum is not None:
             if not self.minimum <= value <= self.maximum:
                 raise argparse.ArgumentTypeError(
-                    f'{string} is not in the range {self.minimum}..{self.maximum}')
+                    '{} is not in the range {}..{}'.format(string, self.minimum, self.maximum))
         elif self.minimum is not None:
             if value < self.minimum:
                 raise argparse.ArgumentTypeError(
-                    f'{string} is not in the range {self.minimum}..inf')
+                    '{} is not in the range {}..inf'.format(string, self.minimum))
         elif self.maximum is not None:
             if value > self.maximum:
                 raise argparse.ArgumentTypeError(
-                    f'{string} is not in the range -inf..{self.maximum}')
+                    '{} is not in the range -inf..{}'.format(string, self.maximum))
 
         return value
 
