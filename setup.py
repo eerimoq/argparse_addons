@@ -21,7 +21,7 @@ setup(name='argparse_addons',
       keywords=['argparse'],
       url='https://github.com/eerimoq/argparse_addons',
       py_modules=['argparse_addons'],
-      python_requires=['>=3.6'],
+      python_requires='>=3.6',
       install_requires=[
       ],
       test_suite="tests")
