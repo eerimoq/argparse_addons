@@ -1,6 +1,3 @@
-|buildstatus|_
-|coverage|_
-
 About
 =====
 
@@ -99,11 +96,5 @@ Contributing
       make test
 
 #. Create a pull request.
-
-.. |buildstatus| image:: https://travis-ci.com/eerimoq/argparse_addons.svg
-.. _buildstatus: https://travis-ci.com/eerimoq/argparse_addons
-
-.. |coverage| image:: https://coveralls.io/repos/github/eerimoq/argparse_addons/badge.svg?branch=master
-.. _coverage: https://coveralls.io/github/eerimoq/argparse_addons
 
 .. _examples/integer.py: https://github.com/eerimoq/argparse_addons/blob/master/examples/integer.py
