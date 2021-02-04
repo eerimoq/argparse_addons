@@ -12,11 +12,11 @@ setup(name='argparse_addons',
       license='MIT',
       classifiers=[
           'License :: OSI Approved :: MIT License',
-          'Programming Language :: Python :: 3',
       ],
       keywords=['argparse'],
       url='https://github.com/eerimoq/argparse_addons',
       py_modules=['argparse_addons'],
+      python_requires='>=3.6',
       install_requires=[
       ],
       test_suite="tests")
