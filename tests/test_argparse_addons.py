@@ -62,3 +62,26 @@ class ArgparseAddonsTest(unittest.TestCase):
         integer = argparse_addons.Integer(0, 5)
 
         self.assertEqual(integer('0x1'), 1)
+
+    def test_parse_log_level(self):
+        levels = argparse_addons.parse_log_level('info')
+        self.assertEqual(levels, [(None, 'info')])
+
+        levels = argparse_addons.parse_log_level('foo=info')
+        self.assertEqual(levels, [('foo', 'info')])
+
+        levels = argparse_addons.parse_log_level('foo=info;bar=debug')
+        self.assertEqual(levels,
+                         [
+                             ('foo', 'info'),
+                             ('bar', 'debug')
+                         ])
+
+        levels = argparse_addons.parse_log_level('foo,fie=kalle;bar=debug;debug')
+        self.assertEqual(levels,
+                         [
+                             ('foo', 'kalle'),
+                             ('fie', 'kalle'),
+                             ('bar', 'debug'),
+                             (None, 'debug')
+                         ])
