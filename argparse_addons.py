@@ -36,11 +36,11 @@ def parse_log_level(value):
 
     Examples:
 
-    <logger-name>=<level>
+    <name>=<level>
 
-    <logger-1-name>=<level-1>:<logger-2-name>=<level-2>
+    <name-1>=<level-1>:<name-2>=<level-2>
 
-    <logger-1-name>,<logger-2-name>=<level>
+    <name-1>,<name-2>=<level>
 
     """
 
