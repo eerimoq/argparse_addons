@@ -85,3 +85,6 @@ class ArgparseAddonsTest(unittest.TestCase):
                              ('bar', 'debug'),
                              (None, 'debug')
                          ])
+
+        levels = argparse_addons.parse_log_level(None)
+        self.assertEqual(levels, [])

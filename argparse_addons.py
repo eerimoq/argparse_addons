@@ -1,6 +1,6 @@
 import argparse
 
-__version__ = '0.11.0'
+__version__ = '0.12.0'
 
 
 class Integer:
@@ -45,6 +45,9 @@ def parse_log_level(value):
     """
 
     result = []
+
+    if value is None:
+        return result
 
     for part in value.split(':'):
         if '=' in part:
