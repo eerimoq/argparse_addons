@@ -70,14 +70,14 @@ class ArgparseAddonsTest(unittest.TestCase):
         levels = argparse_addons.parse_log_level('foo=info')
         self.assertEqual(levels, [('foo', 'info')])
 
-        levels = argparse_addons.parse_log_level('foo=info;bar=debug')
+        levels = argparse_addons.parse_log_level('foo=info:bar=debug')
         self.assertEqual(levels,
                          [
                              ('foo', 'info'),
                              ('bar', 'debug')
                          ])
 
-        levels = argparse_addons.parse_log_level('foo,fie=kalle;bar=debug;debug')
+        levels = argparse_addons.parse_log_level('foo,fie=kalle:bar=debug:debug')
         self.assertEqual(levels,
                          [
                              ('foo', 'kalle'),

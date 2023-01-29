@@ -1,6 +1,6 @@
 import argparse
 
-__version__ = '0.9.0'
+__version__ = '0.10.0'
 
 
 class Integer:
@@ -38,7 +38,7 @@ def parse_log_level(value):
 
     <logger-name>=<level>
 
-    <logger-1-name>=<level-1>;<logger-2-name>=<level-2>
+    <logger-1-name>=<level-1>:<logger-2-name>=<level-2>
 
     <logger-1-name>,<logger-2-name>=<level>
 
@@ -46,7 +46,7 @@ def parse_log_level(value):
 
     result = []
 
-    for part in value.split(';'):
+    for part in value.split(':'):
         if '=' in part:
             names, level = part.split('=')
 
